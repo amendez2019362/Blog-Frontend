@@ -4,7 +4,7 @@ export const PublicationList = ({ publication }) => {
     console.log("Datos de posts:", publication);
 
     return (
-        <div>
+        <div className="bg-gray-400">
             {publication.map((publications) => {
                 if (!publications._id) {
                     console.error("ID del post no definido:", publications);

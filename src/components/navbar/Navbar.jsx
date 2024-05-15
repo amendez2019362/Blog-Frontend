@@ -3,15 +3,15 @@ import { Link } from 'react-router-dom';
 
 export const Navbar = () => {
     return (
-        <div>
-            <div className="navbar bg-custom-color-blue">
-                <div className="flex-none">
+        <div className="bg-gray-800 text-white shadow-md">
+            <div>
+                <div>
                     <ul className="menu menu-horizontal px-100">
-                        <li>
-                            <Link to="/publication" className="btn btn-ghost text-lg hover:bg-red-300 hover:text-white font-bold">Publication</Link>
+                        <li className="mr-4">
+                            <Link to="/publication" className="btn btn-ghost text-lg hover:bg-blue-300 hover:text-black">Publicación</Link>
                         </li>
                         <li>
-                            <Link to="/publication/create" className="btn btn-ghost text-lg hover:bg-red-300 hover:text-white font-bold">Add</Link>
+                            <Link to="/publication/create" className="btn btn-ghost text-lg hover:bg-blue-300 hover:text-black">Agregar</Link>
                         </li>
                     </ul>
                 </div>

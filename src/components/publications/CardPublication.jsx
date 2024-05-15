@@ -26,10 +26,13 @@ export const Card = ({
       console.log("Publication ID:", id);
 
       await addComment(id, newComment, authorName);
+
       setNewComment("");
       setAuthorName("");
       setSuccessMessage("Comment added successfully");
+      
       window.location.reload();
+      
     } catch (error) {
       setError(error.response?.data || 'An error occurred while adding the comment');
     }
@@ -37,7 +40,7 @@ export const Card = ({
 
   return (
     <div className="inline-block w-1/4 p-4">
-      <div className="max-w-xs bg-white shadow-md rounded-lg overflow-hidden" style={{ height: '80vh' }}>
+      <div className="max-w-xs bg-white shadow-md rounded-lg overflow-hidden" style={{ height: '85vh' }}>
         <img
           className="w-full h-32 object-cover"
           src={img}
@@ -52,11 +55,11 @@ export const Card = ({
               href={url}
               className="text-sm font-semibold text-indigo-500 hover:text-indigo-600"
             >
-              Read more
+              Ir a la Publicación
             </a>
           </div>
-          <div className="mt-2">
-            <h3 className="text-gray-700 font-semibold">Comments:</h3>
+          <div className="mt-2 max-h-40 overflow-y-auto">
+            <h3 className="text-gray-700 font-semibold">Comentarios:</h3>
             <ul>
               {comments.map((comment) => (
                 <li key={comment._id || comment.comment}>
@@ -69,13 +72,13 @@ export const Card = ({
           <form onSubmit={handleSubmit}>
             <textarea
               className="mt-2 w-full p-2 border border-gray-300 rounded"
-              placeholder="Write your comment..."
+              placeholder="Descripción"
               value={newComment}
               onChange={(e) => setNewComment(e.target.value)}
             />
             <input
               className="mt-2 w-full p-2 border border-gray-300 rounded"
-              placeholder="Your name..."
+              placeholder="Nombre"
               value={authorName}
               onChange={(e) => setAuthorName(e.target.value)}
             />
@@ -86,9 +89,10 @@ export const Card = ({
               className="mt-2 px-4 py-2 bg-indigo-500 text-white rounded hover:bg-indigo-600"
               disabled={isLoading}
             >
-              {isLoading ? "Adding Comment..." : "Add Comment"}
+              {isLoading ? "Cargando" : "Comentar"}
             </button>
           </form>
+
         </div>
       </div>
     </div>

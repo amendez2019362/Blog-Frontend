@@ -4,7 +4,7 @@ import { AddPublication } from "../publications/CreatePublication"
 
 export const Content = ({ publication }) => {
     return (
-        <div className="">
+        <div>
             <Routes>
                 <Route path="/publication" element={<PublicationList publication={publication} />}/>
                 <Route path="/publication/create" element={<AddPublication publication={publication} />}/>
